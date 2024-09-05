@@ -47,8 +47,17 @@ class Solution {
         int maxEndingHere = arr[0];
 
         for (int i = 1; i < arr.length; i++) {
-            maxEndingHere = Math.max(arr[i], maxEndingHere + arr[i]);
-            maxSoFar = Math.max(maxSoFar, maxEndingHere);
+            // maxEndingHere = Math.max(arr[i], maxEndingHere + arr[i]);
+            // maxSoFar = Math.max(maxSoFar, maxEndingHere);
+            if(arr[i]> maxEndingHere + arr[i]){
+              maxEndingHere =arr[i]; 
+            }else{
+                maxEndingHere =maxEndingHere + arr[i];
+            }
+            if(maxSoFar<maxEndingHere){
+                maxSoFar=maxEndingHere;
+            }
+            
         }
 
         return maxSoFar;
